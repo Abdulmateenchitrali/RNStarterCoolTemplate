@@ -140,7 +140,7 @@ const CustomDrawerContent = (props) => {
           labelStyle={styles.customItemLabel}
         />
       </DrawerContentScrollView>
-     
+
       {/* Custom footer */}
       <TouchableOpacity style={styles.footerContainer} onPress={handleFooterPress}>
         <Text style={styles.footerText}>Powered by TECHIBITS</Text>
