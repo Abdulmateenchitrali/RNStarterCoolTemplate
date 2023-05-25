@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/FontAwesome'; // You can use any icon library you prefer
 import { DrawerActions } from '@react-navigation/native';
 
 const CustomDrawerContent = (props) => {
   const { navigation } = props;
-
+  const handleFooterPress = () => {
+    Linking.openURL('https://techibits.com');
+  };
   // Custom tree view items with expanded state
   const [expandedItems, setExpandedItems] = useState([]);
 
-  const toggleItem = (itemKey) => {
+  const toggleItem = (itemKey: any) => {
     const index = expandedItems.indexOf(itemKey);
     if (index !== -1) {
       setExpandedItems(expandedItems.filter((key) => key !== itemKey));
@@ -138,11 +140,11 @@ const CustomDrawerContent = (props) => {
           labelStyle={styles.customItemLabel}
         />
       </DrawerContentScrollView>
-
+     
       {/* Custom footer */}
-      <View style={styles.footerContainer}>
-        <Text style={styles.footerText}>Custom Footer</Text>
-      </View>
+      <TouchableOpacity style={styles.footerContainer} onPress={handleFooterPress}>
+        <Text style={styles.footerText}>Powered by TECHIBITS</Text>
+      </TouchableOpacity>
     </View>
   );
 };
