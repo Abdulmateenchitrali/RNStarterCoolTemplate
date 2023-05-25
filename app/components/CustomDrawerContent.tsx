@@ -11,14 +11,16 @@ const CustomDrawerContent = (props) => {
   };
   // Custom tree view items with expanded state
   const [expandedItems, setExpandedItems] = useState([]);
+  const [activeKey, setActiveKey] = useState(null);
 
-  const toggleItem = (itemKey: any) => {
+  const toggleItem = (itemKey) => {
     const index = expandedItems.indexOf(itemKey);
     if (index !== -1) {
       setExpandedItems(expandedItems.filter((key) => key !== itemKey));
     } else {
       setExpandedItems([...expandedItems, itemKey]);
     }
+    setActiveKey(itemKey); // Set the activeKey when a parent item is pressed
   };
 
   // Custom tree view items
@@ -98,14 +100,15 @@ const CustomDrawerContent = (props) => {
     return items.map((item) => {
       const { key, label, icon, children } = item;
       const isExpanded = expandedItems.includes(key);
+      const isActive = activeKey === key; // Check if the item is active
 
       return (
         <View key={key}>
           {/* Parent item */}
-          <TouchableOpacity onPress={() => toggleItem(key)} style={styles.itemContainer}>
+          <TouchableOpacity onPress={() => toggleItem(key)} style={[styles.itemContainer, isActive && styles.activeItemContainer]}>
             <View style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 16 * level }}>
-              <Icon name={icon} size={24} style={styles.itemIcon} />
-              <Text style={styles.itemLabel}>{label}</Text>
+              <Icon name={icon} size={24} style={[styles.itemIcon, isActive && styles.activeItemIcon]} />
+              <Text style={[styles.itemLabel, isActive && styles.activeItemLabel]}>{label}</Text>
             </View>
           </TouchableOpacity>
 
@@ -154,10 +157,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 90,
+    height: 120,
     backgroundColor: '#f5f5f5',
     padding: 16,
-    marginBottom:15
   },
   headerText: {
     fontSize: 18,
@@ -197,6 +199,15 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 16,
     color: '#666',
+  },
+  activeItemContainer: {
+    backgroundColor: 'powderblue',
+  },
+  activeItemIcon: {
+    color: 'white',
+  },
+  activeItemLabel: {
+    color: 'white',
   },
 });
 
