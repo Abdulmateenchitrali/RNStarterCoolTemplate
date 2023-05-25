@@ -31,28 +31,28 @@ const CustomDrawerContent = (props) => {
         {
           key: '1_1',
           label: 'Child Item 1.1',
-          icon: 'file',
+          icon: 'folder-open',
           children: [
-            { key: '1_1_1', label: 'Sub Child Item 1.1.1', icon: 'file' },
-            { key: '1_1_2', label: 'Sub Child Item 1.1.2', icon: 'file' },
+            { key: '1_1_1', label: 'Sub Child Item 1.1.1', icon: 'folder-open' },
+            { key: '1_1_2', label: 'Sub Child Item 1.1.2', icon: 'folder-open' },
           ],
         },
         {
           key: '1_2',
           label: 'Child Item 1.2',
-          icon: 'file',
+          icon: 'folder-open',
           children: [
-            { key: '1_2_1', label: 'Sub Child Item 1.2.1', icon: 'file' },
-            { key: '1_2_2', label: 'Sub Child Item 1.2.2', icon: 'file' },
+            { key: '1_2_1', label: 'Sub Child Item 1.2.1', icon: 'folder-open' },
+            { key: '1_2_2', label: 'Sub Child Item 1.2.2', icon: 'folder-open' },
           ],
         },
         {
           key: '1_3',
           label: 'Child Item 1.3',
-          icon: 'file',
+          icon: 'folder-open',
           children: [
-            { key: '1_3_1', label: 'Sub Child Item 1.3.1', icon: 'file' },
-            { key: '1_3_2', label: 'Sub Child Item 1.3.2', icon: 'file' },
+            { key: '1_3_1', label: 'Sub Child Item 1.3.1', icon: 'folder-open' },
+            { key: '1_3_2', label: 'Sub Child Item 1.3.2', icon: 'folder-open' },
           ],
         },
       ],
@@ -65,28 +65,28 @@ const CustomDrawerContent = (props) => {
         {
           key: '2_1',
           label: 'Child Item 2.1',
-          icon: 'file',
+          icon: 'folder-open',
           children: [
-            { key: '2_1_1', label: 'Sub Child Item 2.1.1', icon: 'file' },
-            { key: '2_1_2', label: 'Sub Child Item 2.1.2', icon: 'file' },
+            { key: '2_1_1', label: 'Sub Child Item 2.1.1', icon: 'folder-open' },
+            { key: '2_1_2', label: 'Sub Child Item 2.1.2', icon: 'folder-open' },
           ],
         },
         {
           key: '2_2',
           label: 'Child Item 2.2',
-          icon: 'file',
+          icon: 'folder-open',
           children: [
-            { key: '2_2_1', label: 'Sub Child Item 2.2.1', icon: 'file' },
-            { key: '2_2_2', label: 'Sub Child Item 2.2.2', icon: 'file' },
+            { key: '2_2_1', label: 'Sub Child Item 2.2.1', icon: 'folder-open' },
+            { key: '2_2_2', label: 'Sub Child Item 2.2.2', icon: 'folder-open' },
           ],
         },
         {
           key: '2_3',
           label: 'Child Item 2.3',
-          icon: 'file',
+          icon: 'folder-open',
           children: [
-            { key: '2_3_1', label: 'Sub Child Item 2.3.1', icon: 'file' },
-            { key: '2_3_2', label: 'Sub Child Item 2.3.2', icon: 'file' },
+            { key: '2_3_1', label: 'Sub Child Item 2.3.1', icon: 'folder-open' },
+            { key: '2_3_2', label: 'Sub Child Item 2.3.2', icon: 'folder-open' },
           ],
         },
       ],
@@ -133,8 +133,8 @@ const CustomDrawerContent = (props) => {
 
         {/* Custom drawer items */}
         <DrawerItem
-          label="Custom Drawer Item"
-          icon={({ color, size }) => <Icon name="star" color={color} size={size} style={styles.itemIcon} />}
+          label="Logout"
+          icon={({ color, size }) => <Icon name="sign-out" color={color} size={size} style={styles.itemIcon} />}
           onPress={() => { /* Handle custom drawer item press */ }}
           style={styles.customItemContainer}
           labelStyle={styles.customItemLabel}
@@ -154,9 +154,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 120,
+    height: 90,
     backgroundColor: '#f5f5f5',
     padding: 16,
+    marginBottom:15
   },
   headerText: {
     fontSize: 18,
